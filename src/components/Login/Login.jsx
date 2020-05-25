@@ -6,17 +6,44 @@ import { AvForm, AvField } from "availity-reactstrap-validation";
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { email: false };
+    this.state = {  
+      username: null,
+      password: null,
+      login: false,
+      store: null };
   }
 
-  handleValidSubmit = async (event, values) => {
-    event.preventDefault();
-    this.setState({ email: values.email });
-    console.log(`Login Successful`);
+  handleValidSubmit = async (username, password) => {
+    
+        console.log("body", username, password)
+       const response = await fetch("http://localhost:3300/users/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({username, password}),
+        
+      })
+      const result = await response.json();
+
+      console.log(result)
+      
+      localStorage.setItem('login', JSON.stringify({
+            login: true,
+            token: result.access_token
+          }))
+
+          
+          //console.log(result.access_token)
+        
+     
+
+    //this.setState({ email: values.email });
+    //console.log(`Login Successful`);
   };
 
   handleInvalidSubmit = (event, errors, values) => {
-    this.setState({ email: values.email, error: true });
+    this.setState({ username: values.username, error: true });
     console.log(`Login failed`);
   };
 
@@ -27,7 +54,7 @@ class LoginForm extends React.Component {
         onInvalidSubmit={this.handleInvalidSubmit}
       >
         <AvField
-          name="email"
+          name="username"
           label="Email"
           type="text"
           validate={{
