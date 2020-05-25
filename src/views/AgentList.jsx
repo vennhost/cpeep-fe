@@ -7,6 +7,7 @@ import EditIcon from '@material-ui/icons/Edit';
 
 import Card from "components/Card/Card.jsx";
 import { thArrayLoan, thArrayAgent, tdArray, tdArrayAgent } from "variables/Variables.jsx";
+import AddUser from "./AddUser";
 
 class AgentTableList extends Component {
   state = {
@@ -15,7 +16,7 @@ class AgentTableList extends Component {
   render() {
     return (
       <div className="content">
-        <div><h3>List of Agents</h3></div>
+        <div><h3 className="mr-auto">List of Agents</h3><AddUser/></div>
         <Table striped size="sm" responsive>
       <thead>
         <tr>

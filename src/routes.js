@@ -8,6 +8,7 @@ import Icons from "views/Icons.jsx";
 import Maps from "views/Maps.jsx";
 import Notifications from "views/Notifications.jsx";
 import Upgrade from "views/Upgrade.jsx";
+import Home from "views/Home.jsx"
 
 const dashboardRoutes = [
   {
@@ -15,6 +16,13 @@ const dashboardRoutes = [
     name: "Dashboard",
     icon: "pe-7s-graph",
     component: Dashboard,
+    layout: "/admin"
+  },
+  {
+    path: "/home",
+    name: "Home",
+    icon: "pe-7s-graph",
+    component: Home,
     layout: "/admin"
   },
   {

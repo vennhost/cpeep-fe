@@ -5,6 +5,7 @@
   "dependencies": {
     "@material-ui/core": "^4.9.14",
     "@material-ui/icons": "^4.9.1",
+    "availity-reactstrap-validation": "^2.6.1",
     "bootstrap": "^3.3.7",
     "chartist": "0.10.1",
     "node-sass": "4.12.0",

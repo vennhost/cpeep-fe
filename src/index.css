@@ -1,0 +1,30 @@
+.App {
+    font-family: sans-serif !important;
+    text-align: center !important;
+  }
+ /*  body {
+    background-color: darkviolet !important;
+  } */
+  #submit {
+    background-color: limegreen !important;
+  }
+  
+  .jumbotron {
+    margin-top: 50px !important;
+    background-color: snow !important;
+  }
+  .card {
+    margin-left: 25px !important;
+    margin-right: 25px !important;
+    background-color: orchid !important;
+  }
+  
+  hr {
+    width: 70% !important;
+  }
+  
+  .form-head {
+    text-align: center !important;
+    justify-content: center !important;
+    align-items: center !important;
+  }
