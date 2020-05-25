@@ -6,40 +6,55 @@ import { AvForm, AvField } from "availity-reactstrap-validation";
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {  
+    this.state = {
       username: null,
       password: null,
       login: false,
-      store: null };
+      store: null
+    };
   }
 
-  handleValidSubmit = async (username, password) => {
-    
-        console.log("body", username, password)
-       const response = await fetch("http://localhost:3300/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({username, password}),
-        
-      })
-      const result = await response.json();
+  handleValidSubmit = async (event, username, password) => {
+    event.preventDefault();
 
-      console.log(result)
-      
-      localStorage.setItem('login', JSON.stringify({
-            login: true,
-            token: result.access_token
-          }))
 
-          
-          //console.log(result.access_token)
-        
-     
+   /*  var myHeaders = new Headers();
+    myHeaders.append("Content-Type", "application/json");
 
-    //this.setState({ email: values.email });
-    //console.log(`Login Successful`);
+    var raw = JSON.stringify(username, password);
+
+    var requestOptions = {
+      method: 'POST',
+      headers: myHeaders,
+      body: raw,
+      redirect: 'follow'
+    };
+
+    fetch("http://localhost:3300/users/login", requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+      .catch(error => console.log('error', error)); */
+
+         
+         console.log("body", username, password)
+        const response = await fetch("http://localhost:3300/users/login", {
+         method: "POST",
+         headers: {
+           "Content-Type": "application/json"
+         },
+         body: JSON.stringify(username, password),
+         
+       })
+       const result = await response.json();
+ 
+       console.log(result)
+       
+       localStorage.setItem('login', JSON.stringify({
+             login: true,
+             token: result.access_token
+           }))
+
+
   };
 
   handleInvalidSubmit = (event, errors, values) => {
